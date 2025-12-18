@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iruri Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <!-- Using the user's updated logo path and size via CSS class -->
+            <img src="assets/images/Iruri_White.svg" alt="Iruri Labs Logo" class="logo-img">
+            <div class="logo">Iruri Labs</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1 class="reveal">Semantic Rich Document<br>Parsing & Processing</h1>
+        <p class="reveal">Building frontier methodology in Seoul, Korea.</p>
+        <a href="#about" class="cta-button reveal">Discover More</a>
+    </section>
+
+    <section id="about" class="about reveal">
+        <h2>About Us</h2>
+        <p>
+            Iruri Labs is at the forefront of document intelligence. We are developing next-generation technologies 
+            to understand and process semantically rich documents with unprecedented accuracy. 
+            Located in the heart of Seoul, our team is dedicated to pushing the boundaries of AI and parsing technology.
+        </p>
+    </section>
+
+    <section id="services" class="reveal">
+        <h2>Our Services</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="assets/images/transparent_document.png" alt="Document Parsing" class="card-img">
+                <div class="card-content">
+                    <h3>Advanced Parsing</h3>
+                    <p>Extract structured data from complex unstructured documents with high fidelity.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="assets/images/infographic.webp" alt="Semantic Analysis" class="card-img">
+                <div class="card-content">
+                    <h3>Semantic Analysis</h3>
+                    <p>Understand the context and meaning behind the text for smarter processing.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="assets/images/solution_screen.png" alt="AI Integration" class="card-img">
+                <div class="card-content">
+                    <h3>AI Integration</h3>
+                    <p>Seamlessly integrate our parsing engine into your existing AI workflows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="reveal">
+        <h2>Meet the Team</h2>
+        <div class="grid">
+            <!-- Team members will be added here -->
+            <div class="card">
+                <img src="assets/images/teams.jpeg" alt="Team Member" class="card-img">
+                <div class="card-content">
+                    <h3>Our Team</h3>
+                    <p>Experts in AI, NLP, and Software Engineering.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/400x400/161b22/58a6ff?text=Office+Life" alt="Office Life" class="card-img">
+                <div class="card-content">
+                    <h3>Located at Seoul</h3>
+                    <p>At the heart of the Asian AI community, pushing through the boundaries of AI.</p>
+                </div>
+            </div>
+                 <div class="card">
+                <img src="https://via.placeholder.com/400x400/161b22/58a6ff?text=Collaboration" alt="Collaboration" class="card-img">
+                <div class="card-content">
+                    <h3>Collaboration</h3>
+                    <p>We work together to solve hard problems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>&copy; 2025 Iruri Labs. All rights reserved.</p>
+        <p>contact : admin@iruri-labs.com</p>
+        <p>Seoul, Korea</p>
+    </footer>
+
+    <script>
+        // Simple Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
