@@ -11,3 +11,24 @@ animate(scene, camera, renderer);
 window.addEventListener('resize', () => {
     onWindowResize(camera, renderer);
 });
+
+// Header only shows at top
+function updateHeader() {
+    const nav = document.querySelector('nav');
+    const scrollY = window.scrollY;
+    
+    // Only show header when at the very top
+    if (scrollY > 50) {
+        nav.classList.add('hidden');
+    } else {
+        nav.classList.remove('hidden');
+    }
+}
+
+// Throttled scroll event listener
+window.addEventListener('scroll', () => {
+    requestAnimationFrame(updateHeader);
+});
+
+// Initial header state
+updateHeader();

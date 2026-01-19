@@ -33,12 +33,13 @@
 
     <!-- Navigation -->
     <nav>
-        <div class="logo-container">
+        <div class="logo-container" onclick="window.location.href = '/'" onMouseOver="this.style.cursor='pointer'">
             <img src="assets/images/Iruri_White.svg" alt="Iruri Labs Logo" class="logo-img">
             <div class="logo">Iruri Labs</div>
         </div>
         <div class="links">
             <a href="#about">About</a>
+            <a href="#technology">Technology</a>
             <a href="#services">Services</a>
             <a href="#team">Team</a>
             <a href="#contact">Contact</a>
@@ -47,48 +48,174 @@
 
     <!-- Content Sections -->
     <main>
-        <section id="hero">
+        <section id="hero" data-scene="intro">
             <div class="content">
                 <h1 class="glitch-text" data-text="Semantic Rich Document Parsing & Processing">Semantic Rich Document<br>Parsing & Processing</h1>
-                <p>Building frontier methodology in Seoul, Korea.</p>
+                <p>AI-powered Document Parsing, Knowledge Retrieval, and Automation—built in Seoul, Korea.</p>
             </div>
         </section>
 
-        <section id="about">
+        <section id="about" data-scene="about">
             <div class="content">
                 <h2>About Us</h2>
                 <p>
-                    Iruri Labs is at the forefront of document intelligence. We are developing next-generation technologies 
-                    to understand and process semantically rich documents with unprecedented accuracy. 
-                    Located in the heart of Seoul, our team is dedicated to pushing the boundaries of AI and parsing technology.
+                    Iruri Labs builds production-grade document intelligence for teams that must turn real-world paperwork into reliable, structured, and actionable data.
+                    We combine semantic document understanding, knowledge retrieval, and workflow automation into a single engine—designed to be accurate, scalable, and easy to integrate.
                 </p>
+                <div class="badge-row">
+                    <span class="badge">Document Parsing</span>
+                    <span class="badge">Knowledge Graph RAG</span>
+                    <span class="badge">Automation Pipelines</span>
+                    <span class="badge">Multilingual Handwriting</span>
+                </div>
             </div>
         </section>
 
-        <section id="services">
+        <section id="technology" data-scene="doc-parse">
             <div class="content">
-                <h2>Our Services</h2>
-                <div class="grid">
-                    <div class="card">
-                        <img src="assets/images/transparent_document.png" alt="Document Parsing" class="card-img">
-                        <h3>Advanced Parsing</h3>
-                        <p>Extract structured data from complex unstructured documents with high fidelity.</p>
+                <h2>Technology</h2>
+                <div class="two-col">
+                    <div>
+                        <h3 class="section-subtitle">Semantic Document Parsing</h3>
+                        <p class="section-lead">
+                            We treat a document not as a flat image, but as a structured space made of semantic regions.
+                            As you scroll, the 3D document behind this page splits into paragraphs, figures, tables, and form fields—then connects them as a graph.
+                        </p>
+                        <div class="feature-grid">
+                            <div class="feature">
+                                <div class="feature-title">Layout-aware region segmentation</div>
+                                <div class="feature-body">Robust chunking & segmentation that preserves reading order, hierarchy, and visual intent.</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-title">Graph-native representation</div>
+                                <div class="feature-body">Regions become nodes; references and context become edges—ideal for retrieval and automation.</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-title">Integration-ready output</div>
+                                <div class="feature-body">Export clean, consistent structures for downstream pipelines and databases.</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card">
-                        <img src="assets/images/infographic.webp" alt="Semantic Analysis" class="card-img">
-                        <h3>Semantic Analysis</h3>
-                        <p>Understand the context and meaning behind the text for smarter processing.</p>
-                    </div>
-                    <div class="card">
-                        <img src="assets/images/solution_screen.png" alt="AI Integration" class="card-img">
-                        <h3>AI Integration</h3>
-                        <p>Seamlessly integrate our parsing engine into your existing AI workflows.</p>
+                    <div class="media-card">
+                        <img src="https://via.placeholder.com/900x700/0b0f14/58a6ff?text=Placeholder+Image%3A+Document+Parsing" alt="Document Parsing" class="media-img">
+                        <div class="media-caption">Replace with a product screenshot, demo capture, or diagram.</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="team">
+        <section id="rag" data-scene="rag">
+            <div class="content">
+                <div class="two-col">
+                    <div>
+                        <h3 class="section-subtitle">World #1 Knowledge Graph RAG</h3>
+                        <p class="section-lead">
+                            Our Retrieval-Augmented Generation stack is built on a Knowledge Graph foundation, with semantic chunking designed for real documents.
+                            It is optimized for precision, ranking quality, and faithful citation.
+                        </p>
+                        <div class="kpi-grid">
+                            <div class="kpi">
+                                <div class="kpi-label">Precision</div>
+                                <div class="kpi-value">0.732</div>
+                            </div>
+                            <div class="kpi">
+                                <div class="kpi-label">MRR</div>
+                                <div class="kpi-value">0.784</div>
+                            </div>
+                            <div class="kpi">
+                                <div class="kpi-label">F1@10</div>
+                                <div class="kpi-value">0.569</div>
+                            </div>
+                        </div>
+                        <div class="feature-grid">
+                            <div class="feature">
+                                <div class="feature-title">Semantic chunking for long documents</div>
+                                <div class="feature-body">Chunks align with meaning (not arbitrary token limits), improving retrieval and reducing hallucinations.</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-title">Knowledge Graph retrieval</div>
+                                <div class="feature-body">Graph signals help connect dispersed evidence across sections, pages, and languages.</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-title">Production stability</div>
+                                <div class="feature-body">Deterministic pipelines, monitoring hooks, and evaluation-friendly outputs.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="media-card">
+                        <img src="https://via.placeholder.com/900x700/0b0f14/00f3ff?text=Placeholder+Image%3A+Knowledge+Graph+RAG" alt="Knowledge Graph RAG" class="media-img">
+                        <div class="media-caption">Replace with a graph visualization or retrieval dashboard.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pipeline" data-scene="pipeline">
+            <div class="content">
+                <div class="two-col">
+                    <div>
+                        <h3 class="section-subtitle">Document Processing Pipelines & Multilingual Handwriting</h3>
+                        <p class="section-lead">
+                            Documents become valuable only when they move through a reliable engine.
+                            As you scroll, the 3D document flows through our pipeline—getting parsed, normalized, interpreted, and enriched into machine-usable meaning.
+                        </p>
+                        <div class="feature-grid">
+                            <div class="feature">
+                                <div class="feature-title">Stable pipelining for automation</div>
+                                <div class="feature-body">Composable stages with robust error handling, retries, and consistent intermediate formats.</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-title">Context-aware multilingual handwriting OCR</div>
+                                <div class="feature-body">Reads handwriting across languages and scripts with context-sensitive decoding.</div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-title">End-to-end data products</div>
+                                <div class="feature-body">From raw scans to searchable records, structured tables, and downstream decisions.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="media-card">
+                        <img src="https://via.placeholder.com/900x700/0b0f14/7000ff?text=Placeholder+Image%3A+Pipeline+%26+Handwriting" alt="Pipeline" class="media-img">
+                        <div class="media-caption">Replace with a pipeline diagram or OCR examples.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" data-scene="services">
+            <div class="content">
+                <h2>Our Services</h2>
+                <p class="section-lead">
+                    Our flagship product turns any exam paper—commercial, custom-made, or legacy—into a searchable database with minimal change to your existing teaching workflow.
+                    Scan or photograph, and we handle the rest: recognition, structuring, grading, and reporting.
+                </p>
+
+                <div class="grid">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/800x500/0b0f14/00f3ff?text=Placeholder%3A+Universal+Ingestion" alt="Universal Ingestion" class="card-img">
+                        <h3>Universal Exam Ingestion</h3>
+                        <p>Recognize questions and content from virtually any layout. Convert scans and photos into a clean, queryable database.</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://via.placeholder.com/800x500/0b0f14/58a6ff?text=Placeholder%3A+Auto+Grading" alt="Auto Grading" class="card-img">
+                        <h3>99% Accurate Auto-Grading</h3>
+                        <p>High-precision scoring for objective formats and handwriting-enabled workflows, with consistency you can audit.</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://via.placeholder.com/800x500/0b0f14/7000ff?text=Placeholder%3A+Reports" alt="Reports" class="card-img">
+                        <h3>Actionable Feedback Reports</h3>
+                        <p>Detailed, report-style feedback that helps instructors maximize learning outcomes and personalize guidance.</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://via.placeholder.com/800x500/0b0f14/00f3ff?text=Placeholder%3A+Easy+Adoption" alt="Easy Adoption" class="card-img">
+                        <h3>Easy Adoption for Any Institution</h3>
+                        <p>Deploy without disrupting your existing class operations. Keep the same teaching style—upgrade the workflow.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" data-scene="team">
             <div class="content">
                 <h2>Meet the Team</h2>
                 <div class="grid">
@@ -111,7 +238,7 @@
             </div>
         </section>
 
-        <section id="contact">
+        <section id="contact" data-scene="contact">
             <div class="content">
                 <h2>Contact</h2>
                 <p>Seoul, Korea</p>

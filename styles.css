@@ -21,6 +21,15 @@ body {
     font-family: var(--font-main);
     overflow-x: hidden;
     overscroll-behavior: none;
+    transition: background-color 600ms ease, color 600ms ease;
+}
+
+body.light-mode {
+    --bg-color: #f2f4f7;
+    --text-primary: #0e1520;
+    --text-secondary: #3d4a5e;
+    --glass-bg: rgba(255, 255, 255, 0.72);
+    --glass-border: rgba(15, 23, 42, 0.12);
 }
 
 canvas#webgl {
@@ -53,11 +62,58 @@ h2 {
     -webkit-text-fill-color: transparent;
 }
 
+body.light-mode h2 {
+    background: linear-gradient(to right, #0e1520, #556174);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 p {
     font-size: 1.125rem;
     color: var(--text-secondary);
     line-height: 1.6;
     max-width: 600px;
+}
+
+.section-lead {
+    margin-top: 0.5rem;
+    max-width: 720px;
+}
+
+.section-subtitle {
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+body.light-mode .section-subtitle {
+    color: #0e1520;
+}
+
+.badge-row {
+    margin-top: 1.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.02);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.85rem;
+    letter-spacing: 0.2px;
+    backdrop-filter: blur(10px);
+}
+
+body.light-mode .badge {
+    background: rgba(255, 255, 255, 0.8);
+    color: rgba(14, 21, 32, 0.85);
 }
 
 /* Navigation */
@@ -72,6 +128,15 @@ nav {
     z-index: 100;
     background: linear-gradient(to bottom, rgba(5,5,5,0.9), transparent);
     backdrop-filter: blur(5px);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+nav.hidden {
+    transform: translateY(-100%);
+}
+
+body.light-mode nav {
+    background: linear-gradient(to bottom, rgba(242,244,247,0.95), rgba(242,244,247,0));
 }
 
 .logo-container {
@@ -93,6 +158,10 @@ nav {
     letter-spacing: -0.5px;
 }
 
+body.light-mode .logo {
+    color: #0e1520;
+}
+
 .links a {
     color: #fff;
     text-decoration: none;
@@ -102,6 +171,11 @@ nav {
     letter-spacing: 1px;
     opacity: 0.7;
     transition: opacity 0.3s;
+}
+
+body.light-mode .links a {
+    color: #0e1520;
+    opacity: 0.7;
 }
 
 .links a:hover {
@@ -118,12 +192,148 @@ section {
     position: relative;
 }
 
+section.scene-lockable .content {
+    transition: opacity 900ms ease, transform 900ms ease, filter 900ms ease;
+}
+
+section.scene-lockable.scene-unrevealed .content {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(6px);
+    pointer-events: none;
+}
+
+section.scene-lockable.scene-revealed .content {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+    pointer-events: auto;
+}
+
+section.scene-pinned {
+    scroll-margin-top: 90px;
+}
+
 .content {
     z-index: 1;
     position: relative;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.75rem;
+    max-width: 720px;
+}
+
+.feature {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 1.1rem 1.2rem;
+    backdrop-filter: blur(10px);
+}
+
+body.light-mode .feature {
+    background: rgba(255, 255, 255, 0.78);
+    border-color: rgba(15, 23, 42, 0.12);
+}
+
+.feature-title {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 700;
+    letter-spacing: -0.2px;
+}
+
+body.light-mode .feature-title {
+    color: #0e1520;
+}
+
+.feature-body {
+    margin-top: 0.5rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.25rem;
+    max-width: 720px;
+}
+
+.kpi {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 1.1rem 1.2rem;
+}
+
+body.light-mode .kpi {
+    background: rgba(255, 255, 255, 0.78);
+    border-color: rgba(15, 23, 42, 0.12);
+}
+
+.kpi-label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.65);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+body.light-mode .kpi-label {
+    color: rgba(14, 21, 32, 0.6);
+}
+
+.kpi-value {
+    margin-top: 0.35rem;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--accent-color);
+}
+
+.media-card {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+}
+
+body.light-mode .media-card {
+    border-color: rgba(15, 23, 42, 0.12);
+}
+
+.media-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.9;
+}
+
+.media-caption {
+    padding: 0.9rem 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+body.light-mode .media-caption {
+    color: rgba(14, 21, 32, 0.55);
 }
 
 /* Hero */
@@ -163,10 +373,14 @@ section {
     background: linear-gradient(to bottom, #fff, transparent);
 }
 
+body.light-mode .scroll-indicator .line {
+    background: linear-gradient(to bottom, #0e1520, transparent);
+}
+
 /* Cards */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -255,6 +469,49 @@ footer {
     }
     
     .links {
-        display: none; /* Simplify for now */
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .links::-webkit-scrollbar {
+        display: none;
+    }
+
+    .links a {
+        margin-left: 0;
+        font-size: 0.8rem;
+        opacity: 0.9;
+        white-space: nowrap;
+    }
+
+    .logo-img {
+        height: 34px;
+    }
+
+    .two-col {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .kpi-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 1.25rem;
+    }
+
+    p {
+        font-size: 1.05rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
     }
 }
