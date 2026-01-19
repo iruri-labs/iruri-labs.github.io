@@ -49,7 +49,7 @@ export function animate(scene, camera, renderer) {
     const lightClear = new THREE.Color(0xf2f4f7);
     const tmpColor = new THREE.Color();
     const env = { mix: 0 };
-    const lightScenes = new Set(['about', 'doc-parse', 'rag', 'services']);
+    const lightScenes = new Set(['about', 'doc-parse', 'rag', 'services','pipeline']);
     const lightRig = {
         ambient: { dark: 1.1, light: 2.1 },
         hemi: { dark: 0.75, light: 1.35 },
@@ -669,8 +669,10 @@ export function animate(scene, camera, renderer) {
 
         const handwritingWindow = clamp01(1 - Math.abs(stageNorm - 0.66) / 0.18) * clamp01(1 - best / 0.9);
         const handwriting = clamp01(handwritingWindow);
-        for (const s of objects.pipeline.strokesSet) {
-            s.material.opacity = handwriting * (0.55 + Math.sin(elapsedTime * 2.6) * 0.12);
+        if (objects.pipeline.strokesSet) {
+            for (const s of objects.pipeline.strokesSet) {
+                s.material.opacity = handwriting * (0.55 + Math.sin(elapsedTime * 2.6) * 0.12);
+            }
         }
 
         if (objects.pipeline.sparks && objects.pipeline.sparkVel) {

@@ -179,9 +179,16 @@ export function createObjects(scene) {
 
     const makeLabelSprite = (text, color = '#00f3ff') => {
         const canvas = document.createElement('canvas');
-        canvas.width = 1024;
-        canvas.height = 256;
         const ctx = canvas.getContext('2d');
+        const font = '700 70px Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif';
+        ctx.font = font;
+        const textWidth = Math.ceil(ctx.measureText(text).width);
+        const paddingX = 80;
+        const paddingY = 48;
+        const baseWidth = 1024;
+        const baseHeight = 256;
+        canvas.width = Math.max(textWidth + paddingX * 2, 2 * (baseHeight - paddingY * 2));
+        canvas.height = baseHeight;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = 'rgba(0,0,0,0)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -190,10 +197,10 @@ export function createObjects(scene) {
         ctx.strokeStyle = 'rgba(255,255,255,0.12)';
         ctx.lineWidth = 4;
         const r = 38;
-        const x = 24;
-        const y = 24;
-        const w = canvas.width - 48;
-        const h = canvas.height - 48;
+        const x = paddingY;
+        const y = paddingY;
+        const w = canvas.width - paddingY * 2;
+        const h = canvas.height - paddingY * 2;
         ctx.beginPath();
         ctx.moveTo(x + r, y);
         ctx.lineTo(x + w - r, y);
@@ -209,9 +216,10 @@ export function createObjects(scene) {
         ctx.stroke();
 
         ctx.fillStyle = color;
-        ctx.font = '700 84px Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif';
+        ctx.font = font;
         ctx.textBaseline = 'middle';
-        ctx.fillText(text, 70, canvas.height / 2);
+        ctx.textAlign = 'center';
+        ctx.fillText(text, canvas.width / 2, canvas.height / 2);
 
         const texture = new THREE.CanvasTexture(canvas);
         texture.minFilter = THREE.LinearFilter;
@@ -223,25 +231,32 @@ export function createObjects(scene) {
             depthWrite: false
         });
         const sprite = new THREE.Sprite(material);
-        sprite.scale.set(2.6, 0.65, 1);
+        sprite.scale.set(2.6 * (canvas.width / baseWidth), 0.65 * (canvas.height / baseHeight), 1);
         return sprite;
     };
 
     const makeTagSprite = (text, color = '#58a6ff') => {
         const canvas = document.createElement('canvas');
-        canvas.width = 720;
-        canvas.height = 220;
         const ctx = canvas.getContext('2d');
+        const font = '700 72px Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif';
+        ctx.font = font;
+        const textWidth = Math.ceil(ctx.measureText(text).width);
+        const paddingX = 64;
+        const paddingY = 36;
+        const baseWidth = 720;
+        const baseHeight = 220;
+        canvas.width = Math.max(textWidth + paddingX * 2, 2 * (baseHeight - paddingY * 2));
+        canvas.height = baseHeight;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         ctx.fillStyle = 'rgba(10,12,18,0.7)';
         ctx.strokeStyle = 'rgba(255,255,255,0.18)';
         ctx.lineWidth = 4;
         const r = 36;
-        const x = 18;
-        const y = 18;
-        const w = canvas.width - 36;
-        const h = canvas.height - 36;
+        const x = paddingY;
+        const y = paddingY;
+        const w = canvas.width - paddingY * 2;
+        const h = canvas.height - paddingY * 2;
         ctx.beginPath();
         ctx.moveTo(x + r, y);
         ctx.lineTo(x + w - r, y);
@@ -257,9 +272,10 @@ export function createObjects(scene) {
         ctx.stroke();
 
         ctx.fillStyle = color;
-        ctx.font = '700 72px Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif';
+        ctx.font = font;
         ctx.textBaseline = 'middle';
-        ctx.fillText(text, 58, canvas.height / 2);
+        ctx.textAlign = 'center';
+        ctx.fillText(text, canvas.width / 2, canvas.height / 2);
 
         const texture = new THREE.CanvasTexture(canvas);
         texture.minFilter = THREE.LinearFilter;
@@ -272,7 +288,7 @@ export function createObjects(scene) {
             depthTest: false
         });
         const sprite = new THREE.Sprite(material);
-        sprite.scale.set(1.6, 0.48, 1);
+        sprite.scale.set(1.6 * (canvas.width / baseWidth), 0.48 * (canvas.height / baseHeight), 1);
         return sprite;
     };
 
